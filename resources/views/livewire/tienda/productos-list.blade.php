@@ -124,6 +124,3 @@
         </div>
     </div>
 </div>
-<div class="mt-8">
-    {{ $productos->onEachSide(1)->links() }}
-</div>

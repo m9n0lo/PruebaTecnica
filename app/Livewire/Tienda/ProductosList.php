@@ -3,7 +3,6 @@ namespace App\Livewire\Tienda;
 
 use App\Models\Productos;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class ProductosList extends Component
 {
@@ -12,10 +11,6 @@ class ProductosList extends Component
     public $showModal = false;
 
     public $content = '';
-
-    use WithPagination;
-
-    protected $paginationTheme = 'tailwind';
 
     public function showDetails(int $productId): void
     {
@@ -35,16 +30,10 @@ class ProductosList extends Component
         $productos = Productos::query()
             ->with('categorias:id,nombre')
             ->orderByDesc('id')
-            ->paginate(10)
-            ;
+            ->get();
 
         return view('livewire.tienda.productos-list', [
             'productos' => $productos,
         ]);
-    }
-
-    public function getPageName()
-    {
-        return 'productos_page';
     }
 }
