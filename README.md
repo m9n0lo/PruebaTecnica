@@ -29,6 +29,6 @@ php artisan make:filament-user
 npm run dev
 php artisan serve
 
-#RUTAS
+# RUTAS
 /tienda => es la pagina publica donde estas los productos con cards
 /admin => es el dashboard de filament
